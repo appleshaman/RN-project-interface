@@ -93,16 +93,20 @@ class Sub1 extends Component {
                     <Text style={styles.theSmallGreen}>{item.categoryAmount + "个品种" + item.number + "件" + item.weight + "kg"}</Text>
                 </View>
 
-                <View style={{flex: 1, alignItems: "center", justifyContent: "center", flexDirection: "row" }}>
+                
                     {item.paid &&
-                        <Text style={[styles.theButtonText, { backgroundColor: "#1D9265" }]}>
+                    <View style={[styles. theButtonTextView, { backgroundColor: "#1D9265" }]}>
+                        <Text style={styles.theButtonText}>
                             {"收货"}
-                        </Text>}
+                        </Text>
+                        </View>}
                     {!item.paid &&
-                        <Text style={[styles.theButtonText, { backgroundColor: "#FEC100" }]}>
+                    <View style={[styles. theButtonTextView, { backgroundColor: "#FEC100" }]}>
+                        <Text style={styles.theButtonText}>
                             {"收单"}
-                        </Text>}
-                </View>
+                        </Text>
+                        </View>}
+                
 
 
             </View>
@@ -181,14 +185,17 @@ const styles = StyleSheet.create({
         borderBottomColor: "grey",
     },
     theButtonText: {
-        borderRadius: 5,
-        width: 60,
-        height: 30,
         fontSize: 15,
         color: "white",
         fontWeight: "bold",
-        alignItems: "center",
+    },
+    theButtonTextView:{
+        alignItems: "center", 
         justifyContent: "center",
+        borderRadius:10,
+        height:30,
+        width:60,
+        margin:3
     }
 
 })
