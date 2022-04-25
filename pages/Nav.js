@@ -61,7 +61,7 @@ function Nav() {
           tabBarActiveBackgroundColor:"grey", 
           tabBarInactiveBackgroundColor:"black",
           tabBarShowLabel: true,
-          tabBarLabelStyle: {color: "white",fontSize: 30, justifyContent:"center"}
+          tabBarLabelStyle: {color: "white",fontSize: 30}
           
         }}
       >
