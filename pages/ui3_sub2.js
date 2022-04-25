@@ -3,6 +3,7 @@ import { Image, SafeAreaView, Button, View, FlatList, StyleSheet, Text, StatusBa
 import { SearchBar, CheckBox, lightColors, createTheme, ThemeProvider, ListItem } from '@rneui/themed';
 import { DateTimePickerAndroid, DateTimePicker } from '@react-native-community/datetimepicker';
 import ActionButton from 'react-native-action-button';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 class Sub1 extends Component {
     state = {
         data: [],
@@ -212,18 +213,26 @@ class Sub1 extends Component {
                     </View>
                 </View>
 
-                <View>
+                <View style = {{height: "77%"}}>
                     <FlatList
                         data={this.state.data}
                         renderItem={this.renderItem}
                         keyExtractor={item => item.id}>
                     </FlatList>
 
+                    <ActionButton
+                        buttonColor="#1D9265"
+                        position='right'
+                        offsetX={10}
+                    >
+                        <ActionButton.Item buttonColor='#1D9265'>
+                            <Text style={{fontWeight:"bold", color:"white"}}>{"新增"}</Text>
+                        </ActionButton.Item>
+                    </ActionButton>
+
                 </View>
-
-
-
             </View>
+
         );
     }
 }

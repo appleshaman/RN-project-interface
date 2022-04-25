@@ -265,41 +265,39 @@ class UI1 extends Component {
                     />
                 </View>
 
-                <View style={{ flexDirection: "row",height:"83%", width: 80 }}>
+                <View style={{ flexDirection: "row", height: "83%", width: 80 }}>
                     <View style={styles.containerForLeftBottom}>
                         <View style={{ alignItems: "center", justifyContent: "center", height: 50, width: 100 }}>
                             <Text style={{ height: 25, width: 80, fontSize: 18, fontWeight: "bold" }}>
                                 {"所有分类"}
                             </Text>
                         </View>
-
-
                         <FlatList
                             data={this.state.dataForRow2}
                             renderItem={this.type2}
                             keyExtractor={item => item.id}
                         />
-
                     </View>
 
                     <View style={styles.containerForRightBottom}>
-
                         <FlatList
                             data={this.state.dataForRow1}
                             renderItem={this.type4}
                             keyExtractor={item => item.id}
-
                         />
-
                     </View>
-                </View>
-                
 
-                {/* <View>
-                    <ActionButton buttonColor="rgba(231,76,60,1)">
-                        
-                    </ActionButton>
-                </View> */}
+                </View>
+                <ActionButton
+                    buttonColor="#1D9265"
+                    position='right'
+                    offsetX={10}
+                >
+                    <ActionButton.Item buttonColor='#1D9265'>
+                        <MaterialIcons name="shopping-cart" size={30} color="white" />
+                    </ActionButton.Item>
+                </ActionButton>
+
             </View>
 
         );
