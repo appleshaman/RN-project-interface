@@ -264,16 +264,8 @@ class UI1 extends Component {
                     //value={}
                     />
                 </View>
-                <View style={{ backgroundColor: "white", height: 155 }}>
-                    <FlatList
-                        data={this.state.dataForRow1}
-                        renderItem={this.type1}
-                        keyExtractor={item => item.id}
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-                <View style={{ flexDirection: "row", height: 355, width: 80 }}>
+
+                <View style={{ flexDirection: "row", height: "78%", width: 80 }}>
                     <View style={styles.containerForLeftBottom}>
                         <View style={{ alignItems: "center", justifyContent: "center", height: 50, width: 100 }}>
                             <Text style={{ height: 25, width: 80, fontSize: 18, fontWeight: "bold" }}>
@@ -291,15 +283,6 @@ class UI1 extends Component {
                     </View>
 
                     <View style={styles.containerForRightBottom}>
-                        <View>
-                            <FlatList
-                                data={this.state.dataForRow3}
-                                renderItem={this.type3}
-                                keyExtractor={item => item.id}
-                                horizontal={true}
-                                showsHorizontalScrollIndicator={false}
-                            />
-                        </View>
 
                         <FlatList
                             data={this.state.dataForRow1}
@@ -313,25 +296,18 @@ class UI1 extends Component {
                 <View style={{ backgroundColor: "black", flexDirection: "row", height: 43, alignItems: 'center', justifyContent: "center", width: 411 }}>
                     <View style={{ alignItems: 'center', flex: 1 }}>
                         <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"商城"}
+                            {"货源"}
                         </Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1 }}>
                         <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"计划"}
+                            {"批发商"}
                         </Text>
                     </View>
 
-                    <View style={{ flex: 1, alignItems: "center" }}>
-                        <View style={{ backgroundColor: "#2F2D2D", width: 50, height: 43, justifyContent: 'center', alignItems: "center", }}>
-                            <MaterialIcons name="shopping-cart" size={30} color="#FFC200" />
-                        </View>
-                    </View>
-
-
                     <View style={{ alignItems: 'center', flex: 1 }}>
                         <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"结算"}
+                            {"订购"}
                         </Text>
                     </View>
                     <View style={{ alignItems: 'center', flex: 1 }}>
@@ -343,11 +319,11 @@ class UI1 extends Component {
 
                 </View>
 
-                <View>
+                {/* <View>
                     <ActionButton buttonColor="rgba(231,76,60,1)">
                         
                     </ActionButton>
-                </View>
+                </View> */}
             </View>
 
         );
@@ -458,10 +434,6 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 32,
-    },
-    listProperties: {
-        height: '50%',
-        width: '85%'
     },
 });
 export default UI1;
