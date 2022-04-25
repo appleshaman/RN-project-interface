@@ -13,6 +13,7 @@
     "@react-native-community/datetimepicker": "^6.1.2",
     "@react-native-elements/base": "^4.0.0-rc.0",
     "@react-native-elements/themed": "^4.0.0-rc.0",
+    "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.1",
     "@rneui/base": "^4.0.0-rc.1",

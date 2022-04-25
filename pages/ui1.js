@@ -265,7 +265,7 @@ class UI1 extends Component {
                     />
                 </View>
 
-                <View style={{ flexDirection: "row", height: "78%", width: 80 }}>
+                <View style={{ flexDirection: "row",height:"83%", width: 80 }}>
                     <View style={styles.containerForLeftBottom}>
                         <View style={{ alignItems: "center", justifyContent: "center", height: 50, width: 100 }}>
                             <Text style={{ height: 25, width: 80, fontSize: 18, fontWeight: "bold" }}>
@@ -293,31 +293,7 @@ class UI1 extends Component {
 
                     </View>
                 </View>
-                <View style={{ backgroundColor: "black", flexDirection: "row", height: 43, alignItems: 'center', justifyContent: "center", width: 411 }}>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"货源"}
-                        </Text>
-                    </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"批发商"}
-                        </Text>
-                    </View>
-
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"订购"}
-                        </Text>
-                    </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"我的"}
-                        </Text>
-                    </View>
-
-
-                </View>
+                
 
                 {/* <View>
                     <ActionButton buttonColor="rgba(231,76,60,1)">

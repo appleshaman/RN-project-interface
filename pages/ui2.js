@@ -184,30 +184,6 @@ class UI2 extends Component {
                         {"合计:" + this.amountCaculation() + "件 " + this.weightCaculation() + "公斤 " + this.priceCaculation() + "元 "}
                     </Text>
                 </View>
-
-                <View style={{ backgroundColor: "black", flexDirection: "row", height: 43, alignItems: 'center', justifyContent: "center", width: 411 }}>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"货源"}
-                        </Text>
-                    </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"批发商"}
-                        </Text>
-                    </View>
-
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"订购"}
-                        </Text>
-                    </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"我的"}
-                        </Text>
-                    </View>
-                </View>
             </View>
         );
     }

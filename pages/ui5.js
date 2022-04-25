@@ -142,43 +142,13 @@ class UI5 extends Component {
                     </View>
                 </View>
 
-                <View style={{ height: "73%" }}>
+                <View>
                     <FlatList
                         data={this.state.data}
                         renderItem={this.renderItem}
                         keyExtractor={item => item.id}>
                     </FlatList>
                 </View>
-
-                <View style={{ backgroundColor: "black", flexDirection: "row", height: 43, alignItems: 'center', justifyContent: "center", width: 411 }}>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"货源"}
-                        </Text>
-                    </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"批发商"}
-                        </Text>
-                    </View>
-
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"订购"}
-                        </Text>
-                    </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"我的"}
-                        </Text>
-                    </View>
-                </View>
-
-
-
-
-
-
             </View>
         );
     }
