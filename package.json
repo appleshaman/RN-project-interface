@@ -1,0 +1,46 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/datetimepicker": "^6.1.2",
+    "@react-native-elements/base": "^4.0.0-rc.0",
+    "@react-native-elements/themed": "^4.0.0-rc.0",
+    "@react-navigation/native": "^6.0.8",
+    "@react-navigation/native-stack": "^6.5.1",
+    "@rneui/base": "^4.0.0-rc.1",
+    "@rneui/themed": "^4.0.0-rc.1",
+    "react": "17.0.2",
+    "react-native": "0.67.4",
+    "react-native-action-button": "^2.8.5",
+    "react-native-common-date-picker": "^2.3.7",
+    "react-native-flexi-radio-button": "^0.2.2",
+    "react-native-modal": "^13.0.1",
+    "react-native-safe-area-context": "^3.4.1",
+    "react-native-screens": "^3.13.1",
+    "react-native-shadow": "^1.2.2",
+    "react-native-shadow-cards": "^1.0.2",
+    "react-native-svg": "^12.3.0",
+    "react-native-vector-icons": "^9.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/runtime": "^7.17.8",
+    "@react-native-community/eslint-config": "^3.0.1",
+    "babel-jest": "^27.5.1",
+    "eslint": "^8.11.0",
+    "jest": "^27.5.1",
+    "metro-react-native-babel-preset": "^0.69.1",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
