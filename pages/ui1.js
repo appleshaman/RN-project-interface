@@ -86,30 +86,54 @@ class UI1 extends Component {
             },
         ],
 
-        dataForRow3: [
+        dataForRow2_2: [
             {
                 id: 0,
-                addr: "精品推荐"
+                addr: "商家种类"
             },
             {
                 id: 1,
-                addr: "新鲜上市"
+                addr: "商家种类"
             },
             {
                 id: 2,
-                addr: "助农扶贫"
+                addr: "商家种类"
             },
             {
                 id: 3,
-                addr: "特价专区"
+                addr: "商家种类"
             },
             {
                 id: 4,
-                addr: "特价特价"
+                addr: "商家种类"
             },
             {
                 id: 5,
-                addr: "特价特价"
+                addr: "商家种类"
+            },
+            {
+                id: 6,
+                addr: "商家种类"
+            },
+            {
+                id: 7,
+                addr: "商家种类"
+            },
+            {
+                id: 8,
+                addr: "商家种类"
+            },
+            {
+                id: 9,
+                addr: "商家种类"
+            },
+            {
+                id: 10,
+                addr: "商家种类"
+            },
+            {
+                id: 11,
+                addr: "商家种类"
             },
         ],
         expanded: false
@@ -134,19 +158,8 @@ class UI1 extends Component {
                     }}>{addr}</Text>
                 </View>
             )
-        } else if (type == 3) {
-            return (
-                <View style={styles.item3}>
-                    <Text style={{
-                        fontWeight: "bold",
-                        fontSize: 16,
-                        color: "black"
-                    }}>{addr}</Text>
-                </View>
-            )
         } else if (type == 4) {
             return (
-
                 <View style={{ flexDirection: "row" }}>
                     <View style={{ flexDirection: "column" }}>
                         <Image source={{ uri: addr }} style={{ width: 103, height: 103 }} />
@@ -172,14 +185,39 @@ class UI1 extends Component {
                             <Text style={{ color: "red", fontSize: 10 }}>{"135"}</Text>
                         </View>
                     </View>
+                </View>
+            )
+        } else if (type == 5) {
+            return (
+                <View style={{ flexDirection: "row" }}>
+                    <View style={{ flexDirection: "column" }}>
+                        <Image source={{ uri: addr }} style={{ width: 103, height: 103 }} />
+                        <Text style={{ fontWeight: "bold" }}>{"商家"}</Text>
+                        <View style={{ flexDirection: "row" }}>
+                            <Text style={{ color: "#85DCB0", fontSize: 10 }}>{"云南茂源果蔬"}</Text>
 
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: "column" }}>
+                        <Image source={{ uri: addr }} style={{ width: 103, height: 103 }} />
+                        <Text style={{ fontWeight: "bold" }}>{"商家"}</Text>
+                        <View style={{ flexDirection: "row" }}>
+                            <Text style={{ color: "#85DCB0", fontSize: 10 }}>{"云南茂源果蔬"}</Text>
 
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: "column" }}>
+                        <Image source={{ uri: addr }} style={{ width: 103, height: 103 }} />
+                        <Text style={{ fontWeight: "bold" }}>{"商家"}</Text>
+                        <View style={{ flexDirection: "row" }}>
+                            <Text style={{ color: "#85DCB0", fontSize: 10 }}>{"云南茂源果蔬"}</Text>
+
+                        </View>
+                    </View>
                 </View>
             )
         }
-
     }
-
     renderItem = ({ item, type }) => {
         if (type == 1) {
             return this.item(item.addr, 1);
@@ -189,6 +227,10 @@ class UI1 extends Component {
             return this.item(item.addr, 3);
         } else if (type == 4) {
             return this.item(item.addr, 4);
+        } else if (type == 5) {
+            return this.item(item.addr, 5);
+        } else if (type == 6) {
+            return this.item(item.addr, 6);
         }
     }
     type1 = ({ item }) => {
@@ -197,12 +239,13 @@ class UI1 extends Component {
     type2 = ({ item }) => {
         return this.renderItem({ item: item, type: 2 });
     }
-    type3 = ({ item }) => {
-        return this.renderItem({ item: item, type: 3 });
-    }
     type4 = ({ item }) => {
         return this.renderItem({ item: item, type: 4 });
     }
+    type5 = ({ item }) => {
+        return this.renderItem({ item: item, type: 5 });
+    }
+
 
     render() {
         return (
@@ -214,8 +257,7 @@ class UI1 extends Component {
                     <ListItem.Accordion style={styles.theMenu} containerStyle={{ backgroundColor: "#1D9265" }}
                         content={
                             <>
-                                {/* <Icon name="place" size={30} /> */}
-                                <ListItem.Content  >
+                                <ListItem.Content>
                                     <ListItem.Title ><Text style={{ color: "white" }}>
                                         {'广州江南果菜批发市场'}</Text></ListItem.Title>
                                 </ListItem.Content>
@@ -226,6 +268,10 @@ class UI1 extends Component {
                             this.setState({ expanded: this.state.expanded = !this.state.expanded });
                         }}
                     >
+                        <ListItem.Content>
+                            <ListItem.Subtitle><Text style={{ color: "white" }}>
+                                {'广州江南果菜批发市场'}</Text></ListItem.Subtitle>
+                        </ListItem.Content>
                     </ListItem.Accordion>
                 </View>
                 <View style={styles.containerForHorizontalShadow}>
@@ -278,21 +324,33 @@ class UI1 extends Component {
                                 {"所有分类"}
                             </Text>
                         </View>
-                        <FlatList
+                        {this.state.checked1 && <FlatList
                             data={this.state.dataForRow2}
                             renderItem={this.type2}
                             keyExtractor={item => item.id}
-                        />
+                        />}
+                        {!this.state.checked1 && <FlatList
+                            data={this.state.dataForRow2_2}
+                            renderItem={this.type2}
+                            keyExtractor={item => item.id}
+                        />}
                     </View>
 
-                    <View style={styles.containerForRightBottom}>
+                    {this.state.checked1 && <View style={styles.containerForRightBottom}>
                         <FlatList
                             data={this.state.dataForRow1}
                             renderItem={this.type4}
                             keyExtractor={item => item.id}
                         />
-                    </View>
+                    </View>}
 
+                    {!this.state.checked1 && <View style={styles.containerForRightBottom}>
+                        <FlatList
+                            data={this.state.dataForRow1}
+                            renderItem={this.type5}
+                            keyExtractor={item => item.id}
+                        />
+                    </View>}
                 </View>
                 <ActionButton
                     buttonColor="#1D9265"
@@ -313,34 +371,26 @@ class UI1 extends Component {
 
 const styles = StyleSheet.create({
     containerForHorizontalDeep: {
-
         flexDirection: 'row',
         backgroundColor: '#1D9265',
-        height: 50,
-        alignItems: "center"
 
+        alignItems: "center"
     },
     containerForHorizontalShadow: {
-
         flexDirection: 'row',
         backgroundColor: '#87ECBA',
         alignItems: "center"
-
-
     },
     containerForVertical: {
         flexDirection: 'column',
         backgroundColor: '#1D9265',
-
     },
-
     viewSize: {
         width: 40,
         height: 40,
         backgroundColor: 'purple',
         margin: 5
     },
-
     containerForLeftBottom: {
         flexDirection: "column",
         justifyContent: "center",
@@ -355,7 +405,6 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
 
     },
-
     item1: {
         backgroundColor: 'white',
         height: 150,

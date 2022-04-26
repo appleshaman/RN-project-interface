@@ -21,10 +21,7 @@ class UI6 extends Component {
                     />
                 </View>
                 <View style={{ backgroundColor:"white"}}>
-                    <Text style={styles.theGreenText}>{"采购计划管理"}</Text>
                     <Text style={styles.theGreenText}>{"我的采购统计表"}</Text>
-                    <Text style={styles.theGreenText}>{"往来批发商对账表"}</Text>
-                    <Text style={styles.theGreenText}>{"采购批次结算对账"}</Text>
                 </View>
                 <View style={{ backgroundColor: "#EFEFEF", height: 30, borderColor: "#F2F2F2", borderWidth: 1, elevation: 10 }}></View>
                 <View style={{height:250, backgroundColor:"white"}}>
@@ -32,29 +29,6 @@ class UI6 extends Component {
                     <Text style={styles.theGreenText}>{"我的密码"}</Text>
                     <Text style={styles.theGreenText}>{"关于我们"}</Text>
                     <Text style={styles.theGreenText}>{"退出系统"}</Text>
-                </View>
-                <View style={{ backgroundColor: "black", flexDirection: "row", height: 43, alignItems: 'center', justifyContent: "center", width: 411 }}>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"货源"}
-                        </Text>
-                    </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"批发商"}
-                        </Text>
-                    </View>
-
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"订购"}
-                        </Text>
-                    </View>
-                    <View style={{ alignItems: 'center', flex: 1 }}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}>
-                            {"我的"}
-                        </Text>
-                    </View>
                 </View>
             </View>
         );
