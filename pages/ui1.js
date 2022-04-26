@@ -227,14 +227,6 @@ class UI1 extends Component {
                         }}
                     >
                     </ListItem.Accordion>
-
-                    <View style={styles.trapezoid}>
-                        <Text style={{ fontSize: 20, color: "black", backgroundColor: 'transparent', width: 130, textAlign: 'left' }}>
-                            {"扫码进场"}
-                        </Text>
-                        <MaterialCommunityIcons name="line-scan" size={30} color="black" />
-                    </View>
-
                 </View>
                 <View style={styles.containerForHorizontalShadow}>
 
@@ -361,20 +353,6 @@ const styles = StyleSheet.create({
         width: 310,
         alignItems: "stretch",
         backgroundColor: "white",
-
-    },
-    trapezoid: {
-        width: 200,
-        height: 100,
-        alignItems: 'center',
-        flexDirection: "row",
-
-        borderBottomWidth: 100,
-        borderBottomColor: '#87ECBA',
-        borderLeftWidth: 100,
-        borderLeftColor: 'transparent',
-        borderRightWidth: 0,
-        borderRightColor: 'transparent',
 
     },
 
