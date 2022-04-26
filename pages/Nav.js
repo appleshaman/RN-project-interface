@@ -10,46 +10,7 @@ import UI4 from './ui4';
 import UI5 from './ui5';
 import UI6 from './ui6';
 
-
-function NavigationBar() {
-  return (<View style={{ backgroundColor: "black", flexDirection: "row", height: 43, alignItems: 'center', justifyContent: "center", width: 411 }}>
-    <View style={{ alignItems: 'center', flex: 1 }}>
-      <Text
-        style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}
-        onPress={() => navigation.navigate('UI1')}
-      >
-        {"货源"}
-      </Text>
-    </View>
-    <View style={{ alignItems: 'center', flex: 1 }}>
-      <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}
-        onPress={() => navigation.navigate('UI5')}
-      >
-        {"批发商"}
-      </Text>
-    </View>
-
-    <View style={{ alignItems: 'center', flex: 1 }}>
-      <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}
-        onPress={() => navigation.navigate('UI3')}
-      >
-        {"订购"}
-      </Text>
-    </View>
-    <View style={{ alignItems: 'center', flex: 1 }}>
-      <Text style={{ color: "white", fontWeight: "bold", fontSize: 30, height: 43, backgroundColor: "transparent", alignItems: "center" }}
-        onPress={() => navigation.navigate('UI6')}
-      >
-        {"我的"}
-      </Text>
-    </View>
-  </View>);
-}
-
 const Tab = createBottomTabNavigator();
-
-
-
 const Stack = createNativeStackNavigator();
 
 function Nav() {

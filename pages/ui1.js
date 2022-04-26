@@ -5,7 +5,7 @@ import Modal from "react-native-modal";
 import { color } from '@react-native-elements/base/dist/helpers';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { SearchBar, CheckBox, lightColors, createTheme, ThemeProvider } from '@rneui/themed';
+import { SearchBar, CheckBox, ListItem } from '@rneui/themed';
 import ActionButton from 'react-native-action-button';
 
 class UI1 extends Component {
@@ -112,7 +112,7 @@ class UI1 extends Component {
                 addr: "特价特价"
             },
         ],
-
+        expanded: false
 
     }
 
@@ -211,9 +211,23 @@ class UI1 extends Component {
 
                 <StatusBar backgroundColor="#1D9265" barStyle="dark-content" />
                 <View style={styles.containerForHorizontalDeep}>
-                    <Text style={{ fontSize: 20, color: "#D7F0E8", width: 210, textAlign: 'left' }}>
-                        {"广州江南果菜批发市场"}
-                    </Text>
+                    <ListItem.Accordion style={styles.theMenu} containerStyle={{ backgroundColor: "#1D9265" }}
+                        content={
+                            <>
+                                {/* <Icon name="place" size={30} /> */}
+                                <ListItem.Content  >
+                                    <ListItem.Title ><Text style={{ color: "white" }}>
+                                        {'广州江南果菜批发市场'}</Text></ListItem.Title>
+                                </ListItem.Content>
+                            </>
+                        }
+                        isExpanded={this.state.expanded}
+                        onPress={() => {
+                            this.setState({ expanded: this.state.expanded = !this.state.expanded });
+                        }}
+                    >
+                    </ListItem.Accordion>
+
                     <View style={styles.trapezoid}>
                         <Text style={{ fontSize: 20, color: "black", backgroundColor: 'transparent', width: 130, textAlign: 'left' }}>
                             {"扫码进场"}
@@ -408,6 +422,13 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 32,
+    },
+    theMenu: {
+        width: 240,
+        height: 60,
+        shadowColor: 'grey',
+        borderColor: 'grey',
+        elevation: 3,
     },
 });
 export default UI1;
