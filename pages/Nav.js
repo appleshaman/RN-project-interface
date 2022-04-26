@@ -22,8 +22,8 @@ function Nav() {
           tabBarActiveBackgroundColor:"grey", 
           tabBarInactiveBackgroundColor:"black",
           tabBarShowLabel: true,
-          tabBarLabelStyle: {color: "white",fontSize: 30}
-          
+          tabBarLabelStyle: {color: "white",fontSize: 30},
+          tabBarHideOnKeyboard: true
         }}
       >
         <Tab.Screen name="货源" component={UI1} />
