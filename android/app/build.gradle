@@ -215,6 +215,14 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+    api 'com.tencent.imsdk:imsdk-plus:6.1.2166'
+}
+
+repositories {
+    google()
+    jcenter()
+    // 增加 mavenCentral 仓库
+    mavenCentral()
 }
 
 // Run this once to be able to run the application with BUCK
