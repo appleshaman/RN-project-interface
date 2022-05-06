@@ -71,7 +71,9 @@ class UI5 extends Component {
                         source={{ uri: item.addr }}
                     />
                     <View style={{ flexDirection: "column" }}>
-                        <Text style={styles.theName}>
+                        <Text style={styles.theName}
+                        onPress = {() => {this.props.navigation.navigate("ui3")}}
+                        >
                             {item.name}
                         </Text>
                         <View style={{ flexDirection: "row", justifyContent: 'center', alignItems: "center" }}>
