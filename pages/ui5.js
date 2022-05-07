@@ -4,8 +4,9 @@ import { SearchBar, CheckBox, lightColors, createTheme, ThemeProvider, ListItem 
 import { DateTimePickerAndroid, DateTimePicker } from '@react-native-community/datetimepicker';
 import Entypo from 'react-native-vector-icons/Entypo'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import IM_Module from './IM_Module'
 
-class UI5 extends Component {
+class UI5_main extends Component {
     state = {
         pageSelection: false,
         expanded: false,
@@ -17,6 +18,8 @@ class UI5 extends Component {
     componentDidMount() {
         this.generateData();
         this.searchData("");
+        IM_Module.connectToServer(1400671143);
+        IM_Module.login("1234",1400671143)
     }
     generateData = () => {
         for (let i = 0; i < 30; i++) {
@@ -193,4 +196,4 @@ const styles = StyleSheet.create({
         color: "#D19D3D"
     }
 })
-export default UI5;
+export default UI5_main;

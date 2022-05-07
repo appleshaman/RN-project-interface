@@ -216,6 +216,7 @@ dependencies {
         implementation jscFlavor
     }
     api 'com.tencent.imsdk:imsdk-plus:6.1.2166'
+    compile 'com.github.tencentyun:tls-sig-api-v2:2.0'
 }
 
 repositories {
