@@ -4,7 +4,7 @@ import { SearchBar, CheckBox, lightColors, createTheme, ThemeProvider, ListItem 
 import { DateTimePickerAndroid, DateTimePicker } from '@react-native-community/datetimepicker';
 import Entypo from 'react-native-vector-icons/Entypo'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import IM_Module from './IM_Module'
+
 
 class UI5_main extends Component {
     state = {
@@ -18,8 +18,6 @@ class UI5_main extends Component {
     componentDidMount() {
         this.generateData();
         this.searchData("");
-        IM_Module.connectToServer(1400671143);
-        IM_Module.login("1234",1400671143)
     }
     generateData = () => {
         for (let i = 0; i < 30; i++) {
@@ -29,7 +27,8 @@ class UI5_main extends Component {
                     PhoneNumber: "123456789000",
                     name: "江南海特",
                     price: 54390,
-                    addr: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp9.itc.cn%2Fimages01%2F20210225%2F3abc136a5c0440dca769ee5e311136a2.png&refer=http%3A%2F%2Fp9.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652589331&t=df7580cf5747f30327981ec4518bf900'
+                    addr: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp9.itc.cn%2Fimages01%2F20210225%2F3abc136a5c0440dca769ee5e311136a2.png&refer=http%3A%2F%2Fp9.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652589331&t=df7580cf5747f30327981ec4518bf900',
+                    userID:1234 + i
                 }
             )
         }
@@ -75,7 +74,7 @@ class UI5_main extends Component {
                     />
                     <View style={{ flexDirection: "column" }}>
                         <Text style={styles.theName}
-                        onPress = {() => {this.props.navigation.navigate("ui3")}}
+                        onPress = {() => {this.props.navigation.navigate("UI5_sub",{userID: item.userID})}}
                         >
                             {item.name}
                         </Text>

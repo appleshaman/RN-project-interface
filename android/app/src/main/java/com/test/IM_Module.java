@@ -81,4 +81,24 @@ public class IM_Module extends ReactContextBaseJavaModule {
         return status[0];
     }
 
+    @ReactMethod
+    public int login(int userID, int sdkAppID){
+        final int[] status = {0};
+        TLSSigAPIv2 api = new TLSSigAPIv2(sdkAppID, "1f704cf4b61811690b4c985a00561add0ff05f3aa059f263433ef0444d654209");
+        V2TIMManager.getInstance().login(Integer.toString(userID), api.genUserSig(Integer.toString(userID), 1000000), new V2TIMCallback() {
+            @Override
+            public void onSuccess() {
+                show("登录成功", 10);
+                status[0] = 0;
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                show("登录失败", 10);
+                status[0] = 1;
+            }
+        });
+        return status[0];
+    }
+
 }
