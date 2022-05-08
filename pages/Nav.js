@@ -7,7 +7,6 @@ import UI1 from './ui1';
 import UI2 from './ui2';
 import UI3 from './ui3';
 import UI4 from './ui4';
-import UI5 from './ui5';
 import UI6 from './ui6';
 import N5 from './ui5_nav';
 

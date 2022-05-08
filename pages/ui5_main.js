@@ -74,7 +74,7 @@ class UI5_main extends Component {
                     />
                     <View style={{ flexDirection: "column" }}>
                         <Text style={styles.theName}
-                        onPress = {() => {this.props.navigation.navigate("UI5_sub",{userID: item.userID})}}
+                        onPress = {() => {this.props.navigation.navigate("UI5_sub",{userID: item.userID, name: item.name})}}
                         >
                             {item.name}
                         </Text>
