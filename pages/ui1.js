@@ -12,7 +12,6 @@ class UI1 extends Component {
     state = {
         DropdownmenuData: ["卖菜帮软件"],
         checked1: false,
-
         dataForRow1: [
             {
                 id: 0,
@@ -190,18 +189,30 @@ class UI1 extends Component {
             )
         } else if (type == 5) {
             return (
-                <View style={{ flexDirection: "row", justifyContent: "space-around", margin: 5 }}>
-                    <View style={{ flexDirection: "column", alignItems: "center" }}>
-                        <Image source={{ uri: addr }} style={{ width: 110, height: 110 }} />
+                <View style={{ flexDirection: "row" }}>
+                    <View style={{ flexDirection: "column" }}>
+                        <Image source={{ uri: addr }} style={{ width: 103, height: 103 }} />
                         <Text style={{ fontWeight: "bold" }}>{"商家"}</Text>
+                        <View style={{ flexDirection: "row" }}>
+                            <Text style={{ color: "#85DCB0", fontSize: 10 }}>{"云南茂源果蔬"}</Text>
+
+                        </View>
                     </View>
-                    <View style={{ flexDirection: "column", alignItems: "center" }}>
-                        <Image source={{ uri: addr }} style={{ width: 110, height: 110 }} />
+                    <View style={{ flexDirection: "column" }}>
+                        <Image source={{ uri: addr }} style={{ width: 103, height: 103 }} />
                         <Text style={{ fontWeight: "bold" }}>{"商家"}</Text>
+                        <View style={{ flexDirection: "row" }}>
+                            <Text style={{ color: "#85DCB0", fontSize: 10 }}>{"云南茂源果蔬"}</Text>
+
+                        </View>
                     </View>
-                    <View style={{ flexDirection: "column", alignItems: "center" }}>
-                        <Image source={{ uri: addr }} style={{ width: 110, height: 110 }} />
+                    <View style={{ flexDirection: "column" }}>
+                        <Image source={{ uri: addr }} style={{ width: 103, height: 103 }} />
                         <Text style={{ fontWeight: "bold" }}>{"商家"}</Text>
+                        <View style={{ flexDirection: "row" }}>
+                            <Text style={{ color: "#85DCB0", fontSize: 10 }}>{"云南茂源果蔬"}</Text>
+
+                        </View>
                     </View>
                 </View>
             )
@@ -257,12 +268,10 @@ class UI1 extends Component {
                             this.setState({ expanded: this.state.expanded = !this.state.expanded });
                         }}
                     >
-                        <Modal isVisible={true} style={{ height: 100 }} >
-                            <Button title='OK' onPress={() => {
-                                this.setState({ expanded: this.state.expanded = !this.state.expanded });
-                            }}></Button>
-
-                        </Modal>
+                        <ListItem.Content>
+                            <ListItem.Subtitle><Text style={{ color: "white" }}>
+                                {'广州江南果菜批发市场'}</Text></ListItem.Subtitle>
+                        </ListItem.Content>
                     </ListItem.Accordion>
                 </View>
                 <View style={styles.containerForHorizontalShadow}>
@@ -308,35 +317,40 @@ class UI1 extends Component {
                     />
                 </View>
 
-                <View style={{ flexDirection: "row", height: "80%", margin: 3 }}>
-                    {this.state.checked1 && <View style={styles.containerForLeftBottom}>
+                <View style={{ flexDirection: "row", height: "83%", width: 80 }}>
+                    <View style={styles.containerForLeftBottom}>
                         <View style={{ alignItems: "center", justifyContent: "center", height: 50, width: 100 }}>
                             <Text style={{ height: 25, width: 80, fontSize: 18, fontWeight: "bold" }}>
                                 {"所有分类"}
                             </Text>
                         </View>
-                        <FlatList
+                        {this.state.checked1 && <FlatList
                             data={this.state.dataForRow2}
                             renderItem={this.type2}
                             keyExtractor={item => item.id}
+                        />}
+                        {!this.state.checked1 && <FlatList
+                            data={this.state.dataForRow2_2}
+                            renderItem={this.type2}
+                            keyExtractor={item => item.id}
+                        />}
+                    </View>
+
+                    {this.state.checked1 && <View style={styles.containerForRightBottom}>
+                        <FlatList
+                            data={this.state.dataForRow1}
+                            renderItem={this.type4}
+                            keyExtractor={item => item.id}
                         />
                     </View>}
-                
-                {this.state.checked1 && <View style={[styles.containerForRightBottom]}>
-                    <FlatList
-                        data={this.state.dataForRow1}
-                        renderItem={this.type4}
-                        keyExtractor={item => item.id}
-                    />
-                </View>}
 
-                {!this.state.checked1 && <View style={[styles.containerForRightBottom, { width: "100%" }]}>
-                    <FlatList
-                        data={this.state.dataForRow1}
-                        renderItem={this.type5}
-                        keyExtractor={item => item.id}
-                    />
-                </View>}
+                    {!this.state.checked1 && <View style={styles.containerForRightBottom}>
+                        <FlatList
+                            data={this.state.dataForRow1}
+                            renderItem={this.type5}
+                            keyExtractor={item => item.id}
+                        />
+                    </View>}
                 </View>
                 <ActionButton
                     buttonColor="#1D9265"
@@ -386,17 +400,10 @@ const styles = StyleSheet.create({
     },
     containerForRightBottom: {
         flexDirection: "column",
-        height: "100%",
         width: 310,
+        alignItems: "stretch",
         backgroundColor: "white",
-        justifyContent: "space-around",
-        alignItems: "stretch"
 
-    },
-    containerForRightBottom2: {
-        flexDirection: "column",
-        width: 410,
-        backgroundColor: "white",
     },
     item1: {
         backgroundColor: 'white',
