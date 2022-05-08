@@ -7,8 +7,8 @@ import UI1 from './ui1';
 import UI2 from './ui2';
 import UI3 from './ui3';
 import UI4 from './ui4';
-import UI5 from './ui5';
 import UI6 from './ui6';
+import N5 from './ui5_nav';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -27,7 +27,7 @@ function Nav() {
         }}
       >
         <Tab.Screen name="货源" component={UI1} />
-        <Tab.Screen name="批发商" component={UI5} />
+        <Tab.Screen name="批发商" component={N5} />
         <Tab.Screen name="订购" component={UI3} />
         <Tab.Screen name="我的" component={UI6} />
         

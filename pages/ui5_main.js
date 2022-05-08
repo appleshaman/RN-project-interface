@@ -5,7 +5,8 @@ import { DateTimePickerAndroid, DateTimePicker } from '@react-native-community/d
 import Entypo from 'react-native-vector-icons/Entypo'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
-class UI5 extends Component {
+
+class UI5_main extends Component {
     state = {
         pageSelection: false,
         expanded: false,
@@ -26,7 +27,8 @@ class UI5 extends Component {
                     PhoneNumber: "123456789000",
                     name: "江南海特",
                     price: 54390,
-                    addr: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp9.itc.cn%2Fimages01%2F20210225%2F3abc136a5c0440dca769ee5e311136a2.png&refer=http%3A%2F%2Fp9.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652589331&t=df7580cf5747f30327981ec4518bf900'
+                    addr: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp9.itc.cn%2Fimages01%2F20210225%2F3abc136a5c0440dca769ee5e311136a2.png&refer=http%3A%2F%2Fp9.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652589331&t=df7580cf5747f30327981ec4518bf900',
+                    userID:1234 + i
                 }
             )
         }
@@ -71,7 +73,9 @@ class UI5 extends Component {
                         source={{ uri: item.addr }}
                     />
                     <View style={{ flexDirection: "column" }}>
-                        <Text style={styles.theName}>
+                        <Text style={styles.theName}
+                        onPress = {() => {this.props.navigation.navigate("UI5_sub",{userID: item.userID, name: item.name})}}
+                        >
                             {item.name}
                         </Text>
                         <View style={{ flexDirection: "row", justifyContent: 'center', alignItems: "center" }}>
@@ -191,4 +195,4 @@ const styles = StyleSheet.create({
         color: "#D19D3D"
     }
 })
-export default UI5;
+export default UI5_main;

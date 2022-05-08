@@ -215,13 +215,15 @@ dependencies {
     } else {
         implementation jscFlavor
     }
-    compile(name:'imsdk-plus-6.1.2166', ext:'aar')
+
     api 'com.tencent.imsdk:imsdk-plus:6.1.2166'
+    compile 'com.github.tencentyun:tls-sig-api-v2:2.0'
 }
 repositories {
-    flatDir() {
-        dirs 'libs'
-    }
+    google()
+    jcenter()
+    // 增加 mavenCentral 仓库
+    mavenCentral()
 }
 
 // Run this once to be able to run the application with BUCK
