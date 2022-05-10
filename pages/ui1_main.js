@@ -8,7 +8,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { SearchBar, CheckBox, ListItem } from '@rneui/themed';
 import ActionButton from 'react-native-action-button';
 
-class UI1 extends Component {
+class UI1_main extends Component {
     state = {
         DropdownmenuData: ["卖菜帮软件"],
         checked1: false,
@@ -140,7 +140,7 @@ class UI1 extends Component {
 
     }
 
-    item = (addr, type) => {
+    item = (addr, type, item) => {
         if (type == 1) {
             return (
                 <View style={styles.item1}>
@@ -161,9 +161,11 @@ class UI1 extends Component {
         } else if (type == 4) {
             return (
                 <View style={{ flexDirection: "row" }}>
-                    <View style={{ flexDirection: "column" }}>
+                    <View style={{ flexDirection: "column" }} >
                         <Image source={{ uri: addr }} style={{ width: 103, height: 103 }} />
-                        <Text style={{ fontWeight: "bold" }}>{"箱装西兰花A级"}</Text>
+                        <Text style={{ fontWeight: "bold" }}
+                            onPress={() => { this.props.navigation.navigate("UI1_sub", { itemData: item}) }}
+                        >{"箱装西兰花A级"}</Text>
                         <View style={{ flexDirection: "row" }}>
                             <Text style={{ color: "#85DCB0", fontSize: 10 }}>{"云南茂源果蔬"}</Text>
                             <Text style={{ color: "red", fontSize: 10 }}>{"135"}</Text>
@@ -220,17 +222,17 @@ class UI1 extends Component {
     }
     renderItem = ({ item, type }) => {
         if (type == 1) {
-            return this.item(item.addr, 1);
+            return this.item(item.addr, 1, item);
         } else if (type == 2) {
-            return this.item(item.addr, 2);
+            return this.item(item.addr, 2, item);
         } else if (type == 3) {
-            return this.item(item.addr, 3);
+            return this.item(item.addr, 3, item);
         } else if (type == 4) {
-            return this.item(item.addr, 4);
+            return this.item(item.addr, 4, item);
         } else if (type == 5) {
-            return this.item(item.addr, 5);
+            return this.item(item.addr, 5, item);
         } else if (type == 6) {
-            return this.item(item.addr, 6);
+            return this.item(item.addr, 6, item);
         }
     }
     type1 = ({ item }) => {
@@ -458,4 +460,4 @@ const styles = StyleSheet.create({
         elevation: 3,
     },
 });
-export default UI1;
+export default UI1_main;

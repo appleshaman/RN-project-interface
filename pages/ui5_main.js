@@ -28,7 +28,7 @@ class UI5_main extends Component {
                     name: "江南海特",
                     price: 54390,
                     addr: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp9.itc.cn%2Fimages01%2F20210225%2F3abc136a5c0440dca769ee5e311136a2.png&refer=http%3A%2F%2Fp9.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652589331&t=df7580cf5747f30327981ec4518bf900',
-                    userID:1234 + i
+                    targetID:1234 + i
                 }
             )
         }
@@ -74,7 +74,7 @@ class UI5_main extends Component {
                     />
                     <View style={{ flexDirection: "column" }}>
                         <Text style={styles.theName}
-                        onPress = {() => {this.props.navigation.navigate("UI5_sub",{userID: item.userID, name: item.name})}}
+                        onPress = {() => {this.props.navigation.navigate("UI5_sub",{targetID: item.targetID, name: item.name, userID: 1000})}}
                         >
                             {item.name}
                         </Text>

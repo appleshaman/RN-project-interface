@@ -9,19 +9,27 @@ class UI5_sub extends Component {
     state = {
         userID: "",
         name: "",
-        Context: "",
+        context: "",
+        targetID:"",
+        messageRcv:[],
 
     }
     componentDidMount() {
         const { navigation, route } = this.props
         this.state.userID = route.params.userID;
         this.state.name = route.params.name;
+        this.state.targetID = route.params.targetID;
         this.setState({ userID: this.state.userID });
         this.setState({ name: this.state.name });
+        this.setState({ targetID: this.state.targetID });
+
         if (IM_Module.connectToServer(1400671143)) {
             IM_Module.login(this.state.userID, 1400671143);
+            //this.state.messageRcv.push(IM_Module.addSimpleTextListener());
+            
         }
-
+        IM_Module.sendMessage(this.state.targetID, this.state.context)
+        
 
     }
     render() {
@@ -39,25 +47,35 @@ class UI5_sub extends Component {
                 <View style={styles.theChatBox}>
 
                     <View style={styles.theChatListBox}>
-                        <FlatList>
-
+                        <FlatList
+                        data={this.state.messageRcv}
+                        renderItem={this.renderItem}
+                        keyExtractor={item => item.id}
+                        >
                         </FlatList>
                     </View>
                     <KeyboardAvoidingView
                         behavior="position"
-                        style={{height:"0%"}}
+                        style={{ height: "0%" }}
                         keyboardVerticalOffset={Platform.select({ ios: 40, android: -60 })}
-                        enabled = {true}
-                        >
+                        enabled={true}
+                    >
                         <View style={styles.theChatInputBox}>
+                            <View style={styles.theChatInput}>
                             <TextInput
                                 ref={"Conclusion"}
                                 underlineColorAndroid="transparent"
-                                onChangeText={(Context) => this.setState({ Context })}
-                                placeholder="请输入会诊结论"
+                                onChangeText={(context) => this.setState({ context })}
+
                                 multiline={true}
-                                value={this.state.Context}
+                                value={this.state.context}
                             ></TextInput>
+                            </View>
+                            <View style={styles.theSendButton}>
+                                <Text style={{color:"white", fontWeight:"bold", fontSize: 17}}
+                                onPress = {()=>{IM_Module.sendMessage(this.state.targetID, this.state.context)}}
+                                >{"发送"}</Text>
+                            </View>
                         </View>
                     </KeyboardAvoidingView>
                 </View>
@@ -91,12 +109,29 @@ const styles = StyleSheet.create({
         borderColor: "green"
     },
     theChatInputBox: {
-        backgroundColor: "gray",
-
+        flexDirection: "row",
+        backgroundColor: "#D5E5EB",
+        justifyContent: "space-around",
+        alignItems: "center",
         height: 50
+    },
+    theChatInput: {
+        flexDirection: "row",
+        backgroundColor: "white",
+        
+        alignItems: "center",
+        height: 40,
+        width: "70%"
+    },
+
+    theSendButton: {
+        backgroundColor: "#1D9265",
+        borderRadius: 10,
+        height: "80%",
+        width: "17%",
+        justifyContent: "center",
+        alignItems: "center",
+
     }
-
-
-
 })
 export default UI5_sub;

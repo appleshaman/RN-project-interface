@@ -11,8 +11,12 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.tencent.imsdk.v2.V2TIMCallback;
 import com.tencent.imsdk.v2.V2TIMManager;
+import com.tencent.imsdk.v2.V2TIMMessage;
 import com.tencent.imsdk.v2.V2TIMSDKConfig;
 import com.tencent.imsdk.v2.V2TIMSDKListener;
+import com.tencent.imsdk.v2.V2TIMSimpleMsgListener;
+import com.tencent.imsdk.v2.V2TIMUserInfo;
+import com.tencent.imsdk.v2.V2TIMValueCallback;
 import com.tencentyun.TLSSigAPIv2;
 
 
@@ -43,17 +47,17 @@ public class IM_Module extends ReactContextBaseJavaModule {
         V2TIMManager.getInstance().initSDK(reactContext, sdkAppID, config, new V2TIMSDKListener() {
                     @Override
                     public void onConnecting () {
-                        show("正在连接到腾讯云服务器", 10);
+                        show("正在连接到腾讯云服务器", 5);
                         status[0] = 0;
                     }
                     @Override
                     public void onConnectSuccess () {
-                        show("已经成功连接到腾讯云服务器", 10);
+                        show("已经成功连接到腾讯云服务器", 5);
                         status[0] = 1;
                     }
                     @Override
                     public void onConnectFailed ( int code, String error){
-                        show("连接腾讯云服务器失败", 10);
+                        show("连接腾讯云服务器失败", 5);
                         status[0] = 2;
                     }
         });
@@ -94,11 +98,62 @@ public class IM_Module extends ReactContextBaseJavaModule {
 
             @Override
             public void onError(int i, String s) {
-                show("登录失败", 10);
-                status[0] = 1;
+                show(s, 10);
+                status[0] = i;
             }
         });
         return status[0];
+    }
+
+    @ReactMethod
+    public int sendMessage(String targetID, String message){
+        final int[] status = {0};
+//        V2TIMManager.getInstance().sendC2CTextMessage(message, targetID, new V2TIMValueCallback<V2TIMMessage>() {
+//            @Override
+//            public void onSuccess(V2TIMMessage v2TIMMessage) {
+//                //show(v2TIMMessage.toString(), 10);
+//                status[0] = 0;
+//            }
+//
+//            @Override
+//            public void onError(int i, String s) {
+//                show(s, 10);
+//                status[0] = 1;
+//            }
+//        });
+        return status[0];
+    }
+
+//    @ReactMethod
+//    public int sendMessage(int targetID, String message){
+//        final int[] status = {0};
+//        V2TIMManager.getInstance().sendC2CTextMessage(message, Integer.toString(targetID), new V2TIMValueCallback<V2TIMMessage>() {
+//            @Override
+//            public void onSuccess(V2TIMMessage v2TIMMessage) {
+//                show(v2TIMMessage.toString(), 10);
+//                status[0] = 0;
+//            }
+//
+//            @Override
+//            public void onError(int i, String s) {
+//                show(s, 10);
+//                status[0] = 1;
+//            }
+//        });
+//        return status[0];
+//    }
+
+    @ReactMethod
+    public String addSimpleTextListener(){
+        final String[] msg = new String[1];
+        V2TIMManager.getInstance().addSimpleMsgListener(new V2TIMSimpleMsgListener() {
+            @Override
+            public void onRecvC2CTextMessage(String msgID, V2TIMUserInfo sender, String text) {
+                super.onRecvC2CTextMessage(msgID, sender, text);
+                msg[0] = text;
+            }
+        });
+        return msg[0];
     }
 
 }
