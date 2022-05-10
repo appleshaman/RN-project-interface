@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Image, SafeAreaView, Button, View, FlatList, StyleSheet, Text, StatusBar, TouchableHighlight, Dimensions } from 'react-native';
 import { pxToDp } from "./styleKits";
-import Modal from "react-native-modal";
 import { color } from '@react-native-elements/base/dist/helpers';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { SearchBar, CheckBox, ListItem } from '@rneui/themed';
 import ActionButton from 'react-native-action-button';
+import Modal from "react-native-modal";
 
 class UI1_main extends Component {
     state = {
         DropdownmenuData: ["卖菜帮软件"],
         checked1: false,
+        isModalVisible: false,
         dataForRow1: [
             {
                 id: 0,
@@ -140,6 +141,10 @@ class UI1_main extends Component {
 
     }
 
+    toggleModal = () => {
+        this.setState({ isModalVisible: this.state.isModalVisible = !this.state.isModalVisible });
+    }
+
     item = (addr, type, item) => {
         if (type == 1) {
             return (
@@ -164,7 +169,7 @@ class UI1_main extends Component {
                     <View style={{ flexDirection: "column" }} >
                         <Image source={{ uri: addr }} style={{ width: 103, height: 103 }} />
                         <Text style={{ fontWeight: "bold" }}
-                            onPress={() => { this.props.navigation.navigate("UI1_sub", { itemData: item}) }}
+                            onPress={() => { this.props.navigation.navigate("UI1_sub", { itemData: item }) }}
                         >{"箱装西兰花A级"}</Text>
                         <View style={{ flexDirection: "row" }}>
                             <Text style={{ color: "#85DCB0", fontSize: 10 }}>{"云南茂源果蔬"}</Text>
@@ -354,12 +359,23 @@ class UI1_main extends Component {
                         />
                     </View>}
                 </View>
+                <Modal
+                    isVisible={this.state.isModalVisible}
+                    onBackdropPress={() => this.toggleModal()}
+                    useNativeDriver={false}
+                >
+                    <View style={{backgroundColor:"white", height:"70%", width:"90%",alignSelf:"center"}}>
+                        <Text>{"购物车"}</Text>
+
+                    </View>
+                </Modal>
                 <ActionButton
                     buttonColor="#1D9265"
                     position='right'
                     offsetX={10}
+                    useNativeDriver={false}
                 >
-                    <ActionButton.Item buttonColor='#1D9265'>
+                    <ActionButton.Item buttonColor='#1D9265' onPress={() => this.toggleModal()}>
                         <MaterialIcons name="shopping-cart" size={30} color="white" />
                     </ActionButton.Item>
                 </ActionButton>

@@ -13,8 +13,9 @@ class UI1_sub1 extends Component {
         addr: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp9.itc.cn%2Fimages01%2F20210225%2F3abc136a5c0440dca769ee5e311136a2.png&refer=http%3A%2F%2Fp9.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652589331&t=df7580cf5747f30327981ec4518bf900',
         targetID: 1234,
         numberWant: 0,
-        numberConfirm: 0,
+        numberConfirmed: 0,
         inventoryNum: 100,
+        productName:100,
         isModalVisible: false
     }
     componentDidMount() {
@@ -22,7 +23,7 @@ class UI1_sub1 extends Component {
     }
     toggleModal = () => {
         this.setState({ isModalVisible: this.state.isModalVisible = !this.state.isModalVisible });
-        if(this.state.isModalVisible){
+        if (this.state.isModalVisible) {
             this.state.numberWant = 0;
         }
     }
@@ -31,7 +32,7 @@ class UI1_sub1 extends Component {
             <View >
                 <StatusBar backgroundColor="#1D9265" barStyle="dark-content" />
                 <View style={styles.theTopBar}>
-                    <AntDesign name="arrowleft" size={30} color="white" onPress={() => { this.props.navigation.navigate("UI1_main") }} />
+                    <AntDesign name="arrowleft" size={30} color="white" onPress={() => { this.props.navigation.navigate("UI1_main", this.state.numberConfirmed, this.state.productName) }} />
                     <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 30, padding: 10 }}>
                         {this.state.name}
                     </Text>
@@ -62,24 +63,35 @@ class UI1_sub1 extends Component {
                                         onBackdropPress={() => this.toggleModal()}
                                     >
                                         <View style={{ height: "50%", width: "90%", backgroundColor: "white", alignSelf: "center", alignItems: "center" }}>
-                                            <Text>{"库存:" + this.state.inventoryNum}</Text>
-                                            <TextInput
-                                                keyboardType="numeric"
-                                                ref={"Conclusion"}
-                                                underlineColorAndroid="transparent"
-                                                onChangeText={(numberWant) =>
-                                                    this.setState({ numberWant })
-                                                }
-                                                onFocus={()=>{this.setState({ numberWant:this.state.numberWant = ""})}}
-                                                multiline={true}
-                                                value={this.state.numberWant.toString()}
-                                            ></TextInput>
-                                            <Text 
-                                            onPress={() =>{
-                                                this.setState({numberConfirm: this.state.numberConfirm = this.state.numberWant});
-                                                this.setState({inventoryNum : this.state.inventoryNum -= this.state.numberConfirm});
-                                            }}
-                                            >{"确认"}</Text>
+                                            <View style={{ height: "15%", width: "100%", backgroundColor: "orange", alignItems: "center", justifyContent: "center" }}>
+                                                <Text style={{ fontSize: 20, color: "white", fontWeight: "bold" }}>{"库存:" + this.state.inventoryNum}</Text>
+                                            </View>
+                                            <View style={{ height: "15%", width: "100%", backgroundColor: "#1D9265", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+                                                <Text style={{ fontSize: 20, color: "white", fontWeight: "bold" }}>
+                                                    {"数量:"}
+                                                </Text>
+                                                <TextInput
+                                                    style={{ fontSize: 20, color: "white", fontWeight: "bold" }}
+                                                    keyboardType="numeric"
+                                                    ref={"Conclusion"}
+                                                    underlineColorAndroid="transparent"
+                                                    onChangeText={(numberWant) =>
+                                                        this.setState({ numberWant })
+                                                    }
+                                                    onFocus={() => { this.setState({ numberWant: this.state.numberWant = "" }) }}
+                                                    multiline={true}
+                                                    value={this.state.numberWant.toString()}
+                                                ></TextInput>
+                                            </View>
+                                            <View style={{ height: "15%", width: "100%", backgroundColor: "orange", alignItems: "center", justifyContent: "center" }}>
+                                                <Text style={{ fontSize: 20, color: "white", fontWeight: "bold" }}
+                                                    onPress={() => {
+                                                        this.setState({ numberConfirm: this.state.numberConfirmed = this.state.numberWant });
+                                                        this.setState({ inventoryNum: this.state.inventoryNum -= this.state.numberConfirmed });
+                                                        this.toggleModal();
+                                                    }}
+                                                >{"确认"}</Text>
+                                            </View>
                                         </View>
                                     </Modal>
                                 </View>
